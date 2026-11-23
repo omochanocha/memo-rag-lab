@@ -1,0 +1,20 @@
+[tools]
+python = "3.14.10"
+uv = "0.13.9"
+node = "26.13.1"
+pnpm = "12.18.0"
+
+[tasks.check]
+description = "Ruff と mypy"
+dir = "backend"
+run = ["uv run ruff check .", "uv run ruff format --check .", "uv run mypy ."]
+
+[tasks.test]
+description = "pytest"
+dir = "backend"
+run = "uv run pytest"
+
+[tasks.dev]
+description = "FastAPI の開発サーバー"
+dir = "backend"
+run = "uv run fastapi dev app/main.py"
